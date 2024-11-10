@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.JubenDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.JubenEntity" id="jubenMap">
+        <result property="jubenming" column="jubenming"/>
+        <result property="jubenleixing" column="jubenleixing"/>
+        <result property="zuozhe" column="zuozhe"/>
+        <result property="jieshao" column="jieshao"/>
+        <result property="jiage" column="jiage"/>
+        <result property="tupian" column="tupian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.JubenVO" >
+		SELECT * FROM juben  juben         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.JubenVO" >
+		SELECT  juben.* FROM juben  juben 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.JubenView" >
+
+		SELECT  juben.* FROM juben  juben 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.JubenView" >
+		SELECT * FROM juben  juben <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
